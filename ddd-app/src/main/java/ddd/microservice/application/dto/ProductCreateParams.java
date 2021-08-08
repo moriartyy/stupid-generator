@@ -6,7 +6,7 @@ import lombok.Data;
  * @author walter
  */
 @Data
-public class ProductCreateParameters {
+public class ProductCreateParams {
     private String sn;
     private String name;
 }

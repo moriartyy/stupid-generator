@@ -1,7 +1,7 @@
 package ddd.microservice.application;
 
-import ddd.microservice.application.dto.ProductCreateParameters;
-import ddd.microservice.application.dto.ProductGetParameters;
+import ddd.microservice.application.dto.ProductCreateParams;
+import ddd.microservice.application.dto.ProductGetParams;
 import ddd.microservice.application.dto.ProductInfo;
 
 /**
@@ -9,7 +9,7 @@ import ddd.microservice.application.dto.ProductInfo;
  */
 public interface ProductService {
 
-    ProductInfo get(ProductGetParameters productGetParameters);
+    ProductInfo get(ProductGetParams productGetParams);
 
-    Integer create(ProductCreateParameters productCreateParameters);
+    Integer create(ProductCreateParams productCreateParams);
 }

@@ -3,5 +3,5 @@ package ddd.microservice.infrastructure.mysql;
 /**
  * @author walter
  */
-public class ProductPo {
+public class ProductEntity {
 }

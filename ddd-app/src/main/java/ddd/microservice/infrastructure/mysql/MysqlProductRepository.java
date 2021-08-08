@@ -2,11 +2,18 @@ package ddd.microservice.infrastructure.mysql;
 
 import ddd.microservice.domain.product.Product;
 import ddd.microservice.domain.product.ProductRepository;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @author walter
  */
-public class MysqProductRepository implements ProductRepository {
+@Getter
+@Component
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class MysqlProductRepository implements ProductRepository {
 
     @Override
     public Product getById(Integer id) {

@@ -6,6 +6,6 @@ import lombok.Data;
  * @author walter
  */
 @Data
-public class ProductGetParameters {
+public class ProductGetParams {
     private Integer id;
 }
