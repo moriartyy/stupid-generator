@@ -1,4 +1,4 @@
-package test.app.domain.product;
+package ddd.microservice.domain.product;
 
 /**
  * @author walter

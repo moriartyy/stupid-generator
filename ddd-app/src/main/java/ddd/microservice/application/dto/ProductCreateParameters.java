@@ -1,4 +1,4 @@
-package test.app.application.dto;
+package ddd.microservice.application.dto;
 
 import lombok.Data;
 

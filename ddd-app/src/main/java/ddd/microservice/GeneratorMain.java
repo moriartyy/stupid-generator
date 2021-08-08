@@ -1,4 +1,4 @@
-package test.app;
+package ddd.microservice;
 
 
 import stupid.generator.GeneratorFacade;

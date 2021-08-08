@@ -1,15 +1,15 @@
-package test.app.application;
+package ddd.microservice.application;
 
+import ddd.microservice.application.assemblier.ProductInfoAssemblier;
+import ddd.microservice.application.dto.ProductCreateParameters;
+import ddd.microservice.application.dto.ProductGetParameters;
+import ddd.microservice.application.dto.ProductInfo;
+import ddd.microservice.domain.product.Product;
+import ddd.microservice.domain.product.ProductFactory;
+import ddd.microservice.domain.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import test.app.application.assemblier.ProductInfoAssemblier;
-import test.app.application.dto.ProductCreateParameters;
-import test.app.application.dto.ProductGetParameters;
-import test.app.application.dto.ProductInfo;
-import test.app.domain.product.Product;
-import test.app.domain.product.ProductFactory;
-import test.app.domain.product.ProductRepository;
 
 /**
  * @author walter

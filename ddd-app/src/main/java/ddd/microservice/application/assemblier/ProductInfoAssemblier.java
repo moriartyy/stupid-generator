@@ -1,11 +1,11 @@
-package test.app.application.assemblier;
+package ddd.microservice.application.assemblier;
 
+import ddd.microservice.application.dto.ProductInfo;
+import ddd.microservice.domain.product.Product;
+import ddd.microservice.domain.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import test.app.application.dto.ProductInfo;
-import test.app.domain.product.Product;
-import test.app.domain.product.ProductRepository;
 
 /**
  * @author walter
