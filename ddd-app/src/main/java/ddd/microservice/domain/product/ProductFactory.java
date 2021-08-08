@@ -19,7 +19,7 @@ public class ProductFactory {
         return doWith(() -> this.name = name);
     }
 
-    <T> ProductFactory doWith(Runnable action) {
+    ProductFactory doWith(Runnable action) {
         action.run();
         return this;
     }
