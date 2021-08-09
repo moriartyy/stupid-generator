@@ -1,6 +1,6 @@
-package ddd.microservice.application.assemblier;
+package ddd.microservice.contract.assemblier;
 
-import ddd.microservice.application.dto.ProductInfo;
+import ddd.microservice.contract.dto.ProductInfo;
 import ddd.microservice.domain.product.Product;
 import ddd.microservice.domain.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class ProductInfoAssemblier {
+public class ProductAssembler {
 
     private final ProductRepository productRepository;
 

@@ -1,4 +1,4 @@
-package ddd.microservice.application.dto;
+package ddd.microservice.contract.dto;
 
 import lombok.Data;
 

@@ -1,11 +1,15 @@
 package ddd.microservice.infrastructure.event;
 
+import com.google.common.base.CaseFormat;
+
 /**
  * @author walter
  */
 public interface EventHandler {
 
-    boolean canHandle(String eventType);
-
     void handle(Event event);
+
+    default String getEventType() {
+        return CaseFormat.UPPER_CAMEL.to(CaseFormat.UPPER_UNDERSCORE, this.getClass().getName().replace("Handler", ""));
+    }
 }

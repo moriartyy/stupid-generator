@@ -7,9 +7,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author walter
@@ -18,19 +17,19 @@ import java.util.Optional;
 public class EventHandlerDispatcher implements BeanFactoryAware, InitializingBean {
 
     private BeanFactory beanFactory;
-    private final List<EventHandler> handles = new ArrayList<>(20);
+    private final Map<String, EventHandler> handles = new ConcurrentHashMap<>();
 
     public void handle(Event event) {
-        Optional<EventHandler> handler = this.handles.stream()
-                .filter(h -> h.canHandle(event.getType()))
-                .findFirst();
-
-        if (handler.isPresent()) {
-            handler.get().handle(event);
+        EventHandler handler = this.handles.get(event.getType());
+        if (handler != null) {
+            handler.handle(event);
         } else {
             throw new RuntimeException("No handler found for event type " + event.getType());
         }
+    }
 
+    public void addHandler(String eventType, EventHandler eventHandler) {
+        this.handles.put(eventType, eventHandler);
     }
 
     @Override
@@ -41,9 +40,9 @@ public class EventHandlerDispatcher implements BeanFactoryAware, InitializingBea
     @Override
     public void afterPropertiesSet() {
         if (beanFactory instanceof ListableBeanFactory) {
-            this.handles.addAll(
-                    ((ListableBeanFactory) beanFactory).getBeansOfType(EventHandler.class).values());
+            ((ListableBeanFactory) beanFactory).getBeansOfType(EventHandler.class)
+                    .values()
+                    .forEach(h-> this.handles.put(h.getEventType(), h));
         }
-
     }
 }
